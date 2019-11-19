@@ -1,0 +1,7 @@
+ja:
+  views:
+    books:
+      show: 詳細
+      new: 新しい本を登録
+      edit: 編集
+      destroy: 削除
