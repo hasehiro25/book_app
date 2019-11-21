@@ -1,7 +1,15 @@
 ja:
-  views:
-    books:
+  books:
+    index:
       show: 詳細
       new: 新しい本を登録
       edit: 編集
       destroy: 削除
+      check_destroy: 本当に削除してよろしいですか？
+    new: 
+
+    show:
+      edit: 本を編集する
+
+    edit:
+      show: 本の詳細
