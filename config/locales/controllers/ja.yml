@@ -1,0 +1,8 @@
+ja:
+  books:
+    create:
+      success: 新しく本を登録しました
+    update:
+      update: 本を更新しました
+    destroy:
+      destroy: 本を削除しました
