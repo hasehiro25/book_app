@@ -1,4 +1,7 @@
 ja:
+  views:
+    defaults:
+      back: 戻る
   books:
     index:
       show: 詳細
@@ -8,5 +11,11 @@ ja:
       check_destroy: 本当に削除してよろしいですか？
     show:
       edit: 本を編集する
+    create:
+      success: 新しく本を登録しました
     edit:
       show: 本の詳細
+    update:
+      update: 本を更新しました
+    destroy:
+      destroy: 本を削除しました

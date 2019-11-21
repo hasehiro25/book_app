@@ -1,8 +1,0 @@
-en:
-  books:
-    create:
-      success: Created new book
-    update:
-      update: Updated book
-    destroy:
-      destroy: Deleted book
