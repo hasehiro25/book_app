@@ -1,0 +1,15 @@
+en:
+  books:
+    index:
+      show: Show
+      new: Add new book
+      edit: Edit
+      destroy: Delete
+      check_destroy: Are you sure to delete？
+    new: 
+
+    show:
+      edit: Edit book
+
+    edit:
+      show: Show book
