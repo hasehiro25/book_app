@@ -1,0 +1,21 @@
+en:
+  views:
+    defaults:
+      back: Back
+  books:
+    index:
+      show: Show
+      new: Add new book
+      edit: Edit
+      destroy: Delete
+      check_destroy: Are you sure to delete？
+    show:
+      edit: Edit book
+    create:
+      success: Created new book
+    edit:
+      show: Show book
+    update:
+      update: Updated book
+    destroy:
+      destroy: Deleted book
