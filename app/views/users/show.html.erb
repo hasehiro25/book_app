@@ -1,0 +1,11 @@
+<h1>個人ページ</h1>
+<dl>
+  <dt>email</dt>
+  <dd><%= @user.email %></dd>
+  <dt>郵便番号</dt>
+  <dd><%= @user.postcode %></dd>
+  <dt>住所</dt>
+  <dd><%= @user.address %></dd>
+  <dt>プロフィール</dt>
+  <dd><%= simple_format(@user.profile) %></dd>
+</dl>
