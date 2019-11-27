@@ -3,4 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  VALID_POSTCODE = /\A\d{7}\z/
+  validates :postcode, format: { with: VALID_POSTCODE }
 end
