@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  VALID_POSTCODE = /\A\d{7}\z/
+  VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :postcode, format: { with: VALID_POSTCODE }
 end
