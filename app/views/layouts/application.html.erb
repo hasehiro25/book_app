@@ -4,23 +4,30 @@
     <title>BookApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <%= stylesheet_pack_tag 'application' %>
+   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <!-- 仮メニュー navbarにする -->
-      <ul>
-        <li><%= link_to "home", root_path %></li>
-        <li><%= link_to "users", users_path %></li>
-        <li><%= link_to "edit", edit_user_registration_path %></li>
-        <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
-      </ul>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <% key = "info" if key == "notice" %>
+        <% key = "danger" if key == "alert" %>
+        <%= content_tag :div, value, class: "alert alert-#{key}", role: "alert" %>
+      <% end %>
+
+      <% if user_signed_in? %>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- 仮メニュー navbarにする -->
+        <ul class="navbar-nav">
+          <li class="nav-item"><%= link_to "home", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "users", users_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "edit", edit_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+        </ul>
+      </nav>
+      <% end %>
+      <%= yield %>
+      </div>
   </body>
 </html>
