@@ -2,6 +2,7 @@ ja:
   views:
     defaults:
       back: 戻る
+      blank: 記入されていません
     pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"

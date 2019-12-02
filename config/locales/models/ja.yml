@@ -8,3 +8,10 @@ ja:
         author: 作者
         memo: メモ
         picture: イメージ
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        postcode: 郵便番号
+        address: 住所
+        profile: 自己紹介

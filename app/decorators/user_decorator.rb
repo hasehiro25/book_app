@@ -6,6 +6,6 @@ module UserDecorator
   end
 
   def blank_attribute
-    "記入されていません"
+    t("views.defaults.blank")
   end
 end

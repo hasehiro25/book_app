@@ -1,11 +1,11 @@
 <h1>個人ページ</h1>
 <dl>
-  <dt>email</dt>
+  <dt><%= User.human_attribute_name(:email) %></dt>
   <dd><%= @user.email %></dd>
-  <dt>郵便番号</dt>
+  <dt><%= User.human_attribute_name(:postcode) %></dt>
   <dd><%= @user.complement_blank_text(@user.postcode) %></dd>
-  <dt>住所</dt>
+  <dt><%= User.human_attribute_name(:address) %></dt>
   <dd><%= @user.complement_blank_text(@user.address) %></dd>
-  <dt>プロフィール</dt>
+  <dt><%= User.human_attribute_name(:profile) %></dt>
   <dd><%= br_with_escape(@user.complement_blank_text(@user.profile)) %></dd>
 </dl>

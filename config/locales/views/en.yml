@@ -2,6 +2,7 @@ en:
   views:
     defaults:
       back: Back
+      blank: Not Entried
   books:
     index:
       show: Show
