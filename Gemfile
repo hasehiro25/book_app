@@ -46,6 +46,7 @@ group :development do
   gem "rubocop"
   gem "rubocop-performance"
   gem "rubocop-rails"
+  gem "letter_opener"
 end
 
 group :test do
