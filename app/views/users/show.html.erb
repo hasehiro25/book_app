@@ -7,5 +7,5 @@
   <dt>住所</dt>
   <dd><%= @user.address %></dd>
   <dt>プロフィール</dt>
-  <dd><%= simple_format(@user.profile) %></dd>
+  <dd><%= br_with_escape(@user.profile) %></dd>
 </dl>
