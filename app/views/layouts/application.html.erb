@@ -12,6 +12,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <!-- 仮メニュー navbarにする -->
+      <ul>
+        <li><%= link_to "home", root_path %></li>
+        <li><%= link_to "users", users_path %></li>
+        <li><%= link_to "edit", edit_user_registration_path %></li>
+        <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>
