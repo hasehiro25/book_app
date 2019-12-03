@@ -18,8 +18,9 @@ gem "kaminari"
 gem "devise"
 gem "devise-i18n"
 gem "active_decorator"
-
-
+gem "omniauth"
+gem "omniauth-github"
+gem "dotenv-rails"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "awesome_print"
