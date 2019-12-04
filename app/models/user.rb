@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable
-  
+
   has_one_attached :avatar
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
@@ -17,5 +17,9 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
     end
+  end
+
+  def thumbnail
+    avatar.variant(resize: "300x300")
   end
 end
