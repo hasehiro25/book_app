@@ -9,5 +9,5 @@
   <dt><%= User.human_attribute_name(:profile) %></dt>
   <dd><%= br_with_escape(@user.complement_blank_text(@user.profile)) %></dd>
   <dt><%= User.human_attribute_name(:avatar) %></dt>
-  <dd><%= image_tag @user.thumbnail %></dd>
+  <dd><%= image_tag @user.thumbnail unless @user.avatar.blank? %></dd>
 </dl>
