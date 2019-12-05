@@ -27,6 +27,19 @@
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar%>
   </div>
+ 
+  <% unless @user.avatar.blank? %>
+    <div class="field">
+      <%= t("users.edit.current_avatar") %><br />
+      <%= image_tag @user.thumbnail %>
+    </div>
+
+    <div class="form-group form-inline">
+      <%= f.label :delete_avatar_check, class: "checkbox inline" %><br />
+      <%= f.check_box :delete_avatar_check %>
+    </div>
+  <% end %>
+
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>

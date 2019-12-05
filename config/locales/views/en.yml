@@ -20,3 +20,7 @@ en:
       update: Updated book
     destroy:
       destroy: Deleted book
+
+  users:
+    edit:
+      delete_avatar_check: Delete avatar

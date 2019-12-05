@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :postcode, format: { with: VALID_POSTCODE }
+  validates :delete_avatar_check, acceptance: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -21,5 +22,9 @@ class User < ApplicationRecord
 
   def thumbnail
     avatar.variant(resize: "300x300")
+  end
+
+  def delete_avatar
+    avatar.purge
   end
 end

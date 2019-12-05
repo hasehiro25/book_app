@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        delete_avatar_check: Delete avatar
