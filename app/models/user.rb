@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
+  validates :name, presence: true, uniqueness: true
   validates :postcode, format: { with: VALID_POSTCODE }
 
   attr_accessor :delete_avatar_check

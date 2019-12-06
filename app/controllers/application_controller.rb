@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   protected
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:account_update, keys: [:postcode, :address, :profile, :avatar, :delete_avatar_check])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :postcode, :address, :profile, :avatar, :delete_avatar_check])
     end
 end

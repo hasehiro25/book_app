@@ -10,6 +10,7 @@ ja:
         memo: メモ
         picture: イメージ
       user:
+        name: ユーザー名
         postcode: 郵便番号
         address: 住所
         profile: プロフィール
