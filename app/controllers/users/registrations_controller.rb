@@ -18,6 +18,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
     def delete_avatar?
-      !params[:user][:delete_avatar_check].to_i.zero?
+      !account_update_params[:delete_avatar_check].to_i.zero?
     end
 end
