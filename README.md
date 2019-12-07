@@ -1,24 +1,24 @@
-# README
+# book_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Book application for rails practice at fjrod boot camp.
+- ruby 2.6.5
+- rails 6.0.1
 
-Things you may want to cover:
+## Requirements
+needs `imagemagick` to resize images.
+```
+# for homebrew(mac)
+brew install imagemagick
+```
+## Installation
+```ruby
+bundle install
+bundle exec rails db:migrate
+bundle exec rails s
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+make a .env file with these properties to allow oauth with github
+```
+GITHUB_ID=[your_github_id]
+GITHUB_SECRET=[github_secret]
+```
