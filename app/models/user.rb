@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :omniauthable
 
   has_one_attached :avatar
+  has_many :books
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :name, presence: true, uniqueness: true
