@@ -27,3 +27,7 @@ ja:
       update: 本を更新しました
     destroy:
       destroy: 本を削除しました
+  
+  users:
+    edit:
+      current_avatar: 現在のアバター

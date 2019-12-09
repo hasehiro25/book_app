@@ -13,3 +13,5 @@ ja:
         postcode: 郵便番号
         address: 住所
         profile: プロフィール
+        avatar: アバター
+        delete_avatar_check: アバターを削除

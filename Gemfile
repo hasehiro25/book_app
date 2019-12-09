@@ -21,6 +21,8 @@ gem "active_decorator"
 gem "omniauth"
 gem "omniauth-github"
 gem "dotenv-rails"
+gem "mini_magick"
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "awesome_print"
