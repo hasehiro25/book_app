@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :verify_posted_user, only: [:edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
@@ -55,6 +56,11 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
+    end
+
+    def verify_posted_user
+      # 403ページ未作成
+      head :forbidden unless @book.same_user?(current_user)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
