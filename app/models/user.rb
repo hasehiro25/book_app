@@ -10,6 +10,15 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :books
 
+  has_many :followings, class_name: "Relationship",
+                        foreign_key: "follower_id",
+                        dependent: :destroy
+  has_many :following_users, through: :followings, source: :followed
+  has_many :followers, class_name: "Relationship",
+                       foreign_key: "followed_id",
+                       dependent: :destroy
+  has_many :followed_users, through: :followers, source: :follower
+
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :name, presence: true, uniqueness: true
   validates :postcode, format: { with: VALID_POSTCODE }
