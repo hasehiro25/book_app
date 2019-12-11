@@ -5,3 +5,16 @@
     <li><%= link_to following.followed.name, user_path(following.followed) %></li>
   <% end %>
 </ul>
+
+<h2>フォローしてる人の投稿</h2>
+<table>
+  <tbody>
+    <% @books.each do |book|%>
+      <tr>
+        <td><%= link_to book.title, book_path(book)%></td>
+        <td><%= link_to book.user.name, user_path(book.user) %></td>
+        <td><%= I18n.l(book.created_at, format: :long) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

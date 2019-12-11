@@ -3,6 +3,7 @@
 class User::FollowingController < ApplicationController
   def show
     @followings = User.find(params[:user_id]).followings.includes(followed: :books)
+    @books = Book.recent_following_books(@followings.pluck(:followed_id))
   end
 
   def create
