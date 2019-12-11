@@ -11,3 +11,8 @@
   <dt><%= User.human_attribute_name(:avatar) %></dt>
   <dd><%= image_tag @user.thumbnail unless @user.avatar.blank? %></dd>
 </dl>
+
+<% unless  @user == current_user %>
+  <%= link_to "フォローする", user_following_path(@user), method: :post, class: "btn btn-primary" unless current_user.following?(@user) %>
+  <%= link_to "フォローを外す", user_following_path(@user), method: :delete, class: "btn btn-danger" if current_user.following?(@user) %>
+<% end %>

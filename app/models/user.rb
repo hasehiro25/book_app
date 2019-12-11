@@ -39,4 +39,8 @@ class User < ApplicationRecord
   def delete_avatar
     avatar.purge
   end
+
+  def following?(user)
+    followings.exists?(followed_id: user.id)
+  end
 end
