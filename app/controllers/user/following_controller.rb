@@ -2,7 +2,8 @@
 
 class User::FollowingController < ApplicationController
   def show
-    @followings = User.find(params[:user_id]).following_users
+    @user = User.find(params[:user_id])
+    @followings = @user.following_users
     @books = Book.recent_following_books(@followings)
   end
 
