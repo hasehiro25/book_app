@@ -1,20 +1,10 @@
 <h1>フォロー</h1>
 <h2>フォロー(<%= @followings.count %>)</h2>
 <ul>
-  <% @followings.each do |following| %>
-    <li><%= link_to following.followed.name, user_path(following.followed) %></li>
+  <% @followings.each do |user| %>
+    <li><%= link_to user.name, user_path(user) %></li>
   <% end %>
 </ul>
 
 <h2>フォローしてる人の投稿</h2>
-<table>
-  <tbody>
-    <% @books.each do |book|%>
-      <tr>
-        <td><%= link_to book.title, book_path(book)%></td>
-        <td><%= link_to book.user.name, user_path(book.user) %></td>
-        <td><%= I18n.l(book.created_at, format: :long) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render "user/shared/timeline", books: @books %>
