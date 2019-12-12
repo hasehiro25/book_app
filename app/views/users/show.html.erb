@@ -12,8 +12,8 @@
   <dd><%= image_tag @user.thumbnail unless @user.avatar.blank? %></dd>
 </dl>
 <ul class="list-inline">
-  <li class="list-inline-item"><%= link_to "フォロー", user_following_path(@user) %></li> 
-  <li class="list-inline-item"><%= link_to "フォロワー", user_follower_path(@user) %></li> 
+  <li class="list-inline-item"><%= link_to "フォロー", user_following_path(@user) %></li>
+  <li class="list-inline-item"><%= link_to "フォロワー", user_follower_path(@user) %></li>
 </ul>
 <% unless  @user == current_user %>
   <%= link_to "フォローする", user_following_path(@user), method: :post, class: "btn btn-primary" unless current_user.following?(@user) %>
