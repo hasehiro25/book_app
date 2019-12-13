@@ -18,6 +18,7 @@ class User < ApplicationRecord
                        dependent: :destroy
   has_many :followed_users, through: :followers, source: :follower
   has_many :reports
+  has_many :comments
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :name, presence: true, uniqueness: true
