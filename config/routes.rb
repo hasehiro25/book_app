@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   root "books#index"
   resources :books
+  resources :reports
 end

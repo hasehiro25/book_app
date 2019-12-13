@@ -1,0 +1,23 @@
+<h1>Reports</h1>
+<%= link_to t(".new_report"), new_report_path, class:"btn btn-outline-secondary mb-4"%>
+
+<% @reports.each do |report| %>
+  <div class="card mb-2">
+    <h3><%= link_to report.title, report %></h3>
+    <div class="d-inlne-block">
+      posted by: <%= link_to report.user.name, report.user %>,
+      <%= l(report.created_at, format: :long) %>
+    </div>
+
+    <% if current_user == report.user%>
+      <div>
+        <div class="d-inline-block">
+          <%= link_to t(".edit"), edit_report_path(report), class: "btn btn-outline-primary inline" %>
+        </div>
+        <div class="d-inline-block">
+          <%= link_to t(".delete"), report, method: :delete, class: "btn btn-outline-danger", data: { confirm: t(".alert_delete") } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

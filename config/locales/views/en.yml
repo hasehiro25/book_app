@@ -36,3 +36,16 @@ en:
     show:
       follower_with_name: "%{name} Followers"
       follower: Follower
+
+  reports:
+    index:
+      alert_delete: Are you sure you want to delete?
+    new:
+    show:
+      alert_delete: Are you sure you want to delete?
+    create:
+      success: Created report
+    update:
+      success: Updated report
+    destroy:
+      success: Deleted report

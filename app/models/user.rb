@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :books
-
   has_many :followings, class_name: "Relationship",
                         foreign_key: "follower_id",
                         dependent: :destroy
@@ -18,6 +17,7 @@ class User < ApplicationRecord
                        foreign_key: "followed_id",
                        dependent: :destroy
   has_many :followed_users, through: :followers, source: :follower
+  has_many :reports
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :name, presence: true, uniqueness: true

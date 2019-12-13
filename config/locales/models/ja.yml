@@ -16,3 +16,6 @@ ja:
         profile: プロフィール
         avatar: アバター
         delete_avatar_check: アバターを削除
+      report:
+        title: タイトル
+        body: 内容
