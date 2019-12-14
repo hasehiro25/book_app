@@ -1,0 +1,12 @@
+<% comments.each do |comment| %>
+  <div class="card mb-2 p-1" style="width: 25rem;">
+    <%= br_with_escape(comment.content) %>
+    <%= link_to comment.user.name, comment.user %>
+    <%= l(comment.created_at, format: :long) %>
+
+    <% if current_user == comment.user%>
+      <%= link_to "編集", edit_comment_path(comment)%>
+      <%= link_to "削除", comment_path(comment), method: :delete, data: { confirm: "削除してよろしいですか" } %>
+    <% end%>
+  </div>
+<%end%>
