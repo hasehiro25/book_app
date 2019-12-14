@@ -7,6 +7,8 @@ class ReportsController < ApplicationController
 
   def show
     @report = find_report
+    @comments = @report.comments.where.not(id: nil).includes(:user)
+    @comment = @report.comments.build
   end
 
   def new

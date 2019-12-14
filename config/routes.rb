@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
   root "books#index"
   resources :books
-  resources :reports
+  resources :reports, shallow: true do
+    resources :comments, only: [:create, :edit, :update, :destroy], module: "report"
+  end
 end
