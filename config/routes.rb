@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resource :follower, only: [:show], controller: "user/follower"
   end
   root "books#index"
-  resources :books
+  resources :books, shallow: true do
+    resources :comments, only: [:create, :edit, :update, :destroy], module: "book"
+  end
   resources :reports, shallow: true do
     resources :comments, only: [:create, :edit, :update, :destroy], module: "report"
   end
