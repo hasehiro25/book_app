@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.build(comment_params)
     if @comment.save
-      redirect_to @commentable, notice: "コメントしました"
+      redirect_to @commentable, notice: t("comments.create.success")
     else
-      redirect_to @commentable, alert: "コメント投稿に失敗しました"
+      redirect_to @commentable, alert: t("comments.create.failed")
     end
   end
 
@@ -19,9 +19,9 @@ class CommentsController < ApplicationController
     @comment = find_comment
     validate_authority
     if @comment.update(comment_params)
-      redirect_to commentable, notice: "コメントを編集しました"
+      redirect_to commentable, notice: t("comments.update.success")
     else
-      redirect_to commentable, alert: "コメント編集に失敗しました"
+      redirect_to commentable, alert: t("comments.update.failed")
     end
   end
 
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     @comment = find_comment
     validate_authority
     @comment.destroy
-    redirect_to commentable,  notice: "コメントを削除しました"
+    redirect_to commentable,  notice: t("comments.destroy.success")
   end
 
   private

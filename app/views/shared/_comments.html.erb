@@ -5,8 +5,8 @@
     <%= l(comment.created_at, format: :long) %>
 
     <% if current_user == comment.user%>
-      <%= link_to "編集", edit_comment_path(comment)%>
-      <%= link_to "削除", comment_path(comment), method: :delete, data: { confirm: "削除してよろしいですか" } %>
+      <%= link_to t("comments.edit"), edit_comment_path(comment)%>
+      <%= link_to t("comments.delete"), comment_path(comment), method: :delete, data: { confirm: t("comments.delete_confirmation") } %>
     <% end%>
   </div>
 <%end%>

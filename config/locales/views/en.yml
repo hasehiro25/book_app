@@ -49,3 +49,14 @@ en:
       success: Updated report
     destroy:
       success: Deleted report
+
+  comments:
+    delete_confirmation: Are you sure you want to delete?
+
+    create:
+      success: Posted comment
+      failed: Failed to post comment
+    update:
+      success: Edited post
+    destroy:
+      success: Deleted post

@@ -66,3 +66,19 @@ ja:
       success: レポートを更新しました
     destroy:
       success: レポートを削除しました
+
+  comments:
+    comment: コメント
+    edit_comment: コメント編集
+    post_comment: コメントをする
+    edit:  編集
+    delete: 削除
+    delete_confirmation: 削除してよろしいですか？
+
+    create:
+      success: コメントを投稿しました
+      failed: コメント投稿に失敗しました
+    update:
+      success: コメントを編集しました
+    destroy:
+      success: コメントを削除しました

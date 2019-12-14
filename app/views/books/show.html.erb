@@ -22,10 +22,10 @@
   posted by <%= link_to @book.user.name, user_path(@book.user) %>
 </p>
 
-<h2>コメント</h2>
+<h2><%= t("comments.comment") %></h2>
 <%= render "shared/comments", comments: @comments%>
 
-<h2>コメントする</h2>
+<h2><%= t("comments.post_comment") %></h2>
 <%= render "shared/comment_form", comment: [@book, @comment]%>
 
 <%= link_to t(".edit"), edit_book_path(@book) %> |

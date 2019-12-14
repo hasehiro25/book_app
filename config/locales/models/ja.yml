@@ -19,3 +19,5 @@ ja:
       report:
         title: タイトル
         body: 内容
+      comment:
+        content: 内容
