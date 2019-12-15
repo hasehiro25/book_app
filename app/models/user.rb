@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :omniauthable
 
   has_one_attached :avatar
-  has_many :books
+  has_many :books, dependent: :destroy
   has_many :followings, class_name: "Relationship",
                         foreign_key: "follower_id",
                         dependent: :destroy
@@ -17,8 +17,8 @@ class User < ApplicationRecord
                        foreign_key: "followed_id",
                        dependent: :destroy
   has_many :followed_users, through: :followers, source: :follower
-  has_many :reports
-  has_many :comments
+  has_many :reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   VALID_POSTCODE = /\A\z|\A\d{7}\z/
   validates :name, presence: true, uniqueness: true
