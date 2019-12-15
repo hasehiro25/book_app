@@ -9,7 +9,7 @@
       <%= l(report.created_at, format: :long) %>
     </div>
 
-    <% if current_user == report.user%>
+    <% if report.user.has_edit_authority? %>
       <div>
         <div class="d-inline-block">
           <%= link_to t(".edit"), edit_report_path(report), class: "btn btn-outline-primary inline" %>
