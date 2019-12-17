@@ -1,0 +1,15 @@
+taro_followed_jiro:
+  follower: taro
+  followed: jiro
+
+taro_followed_sabu:
+  follower: taro
+  followed: sabu
+
+jiro_followed_taro:
+  follower: jiro
+  followed: taro
+
+sabu_followed_jiro:
+  follower: sabu
+  followed: jiro

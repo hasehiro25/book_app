@@ -1,0 +1,17 @@
+report1:
+  user: taro
+  title: "title one"
+  body: "foobarbizbuz"
+  created_at: <%= Time.now %>
+
+report2:
+  user: jiro
+  title: "title two"
+  body: "foobarbizbuz"
+  created_at: <%= 2.days.ago %>
+
+report3:
+  user: sabu
+  title: "title three"
+  body: "foobarbizbuz"
+  created_at: <%= 1.month.ago %>
