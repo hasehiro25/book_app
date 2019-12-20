@@ -17,8 +17,10 @@
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
         <td><%= link_to t(".show"), book %></td>
-        <td><%= link_to t(".edit"), edit_book_path(book) if book.user == current_user %></td>
-        <td><%= link_to t(".destroy"), book, method: :delete, data: { confirm: t(".check_destroy")  } if book.user == current_user %></td>
+        <% if book.user == current_user %>
+          <td><%= link_to t(".edit"), edit_book_path(book)  %></td>
+          <td><%= link_to t(".destroy"), book, method: :delete, data: { confirm: t(".check_destroy")  } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
