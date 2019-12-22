@@ -60,11 +60,7 @@ class BooksController < ApplicationController
 
     def verify_posted_user
       # 403ページ未作成
-      head :forbidden unless same_user?(@book.user)
-    end
-
-    def same_user?(user)
-      user == current_user
+      head :forbidden unless @book.user == current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
