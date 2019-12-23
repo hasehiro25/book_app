@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  include Commentable
+
   belongs_to :user
 
   mount_uploader :picture, PictureUploader

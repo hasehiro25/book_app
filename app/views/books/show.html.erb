@@ -21,5 +21,12 @@
 <p>
   posted by <%= link_to @book.user.name, user_path(@book.user) %>
 </p>
+
+<h2><%= t("comments.comment") %></h2>
+<%= render "shared/comments", comments: @comments%>
+
+<h2><%= t("comments.post_comment") %></h2>
+<%= render "shared/comment_form", comment: [@book, @comment]%>
+
 <%= link_to t(".edit"), edit_book_path(@book) %> |
 <%= link_to t("views.defaults.back"), books_path %>

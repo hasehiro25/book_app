@@ -1,0 +1,26 @@
+<div class="d-inline-block mt-2">
+  posted by: <%= link_to @report.user.name, @report.user %>,
+  <%= l(@report.created_at, format: :long) %>
+</div>
+
+<h1><%= @report.title %></h1>
+<%= br_with_escape(@report.body) %>
+
+<% if @report.user.has_edit_authority? %>
+  <div>
+    <div class="d-inline-block mb-3">
+      <%= link_to t(".edit"), edit_report_path(@report), class: "btn btn-outline-primary inline" %>
+    </div>
+    <div class="d-inline-block">
+      <%= link_to t(".delete"), @report, method: :delete, class: "btn btn-outline-danger", data: { confirm: t(".alert_delete") } %>
+    </div>
+  </div>
+<% end %>
+
+<h2><%= t("comments.comment") %></h2>
+<%= render "shared/comments", comments: @comments%>
+
+<h2><%= t("comments.post_comment") %></h2>
+<%=render "shared/comment_form", comment: [@report, @comment]%>
+
+<%= link_to t(".report_list"), reports_path %>

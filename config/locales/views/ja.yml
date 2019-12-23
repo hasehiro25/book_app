@@ -48,3 +48,37 @@ ja:
       follower_with_name: "%{name}さんのフォロワー"
       follower: フォロワー
       follower_timeline: フォロワー投稿
+
+  reports:
+    index:
+      new_report: 新しいレポートを作成
+      edit: 編集
+      delete: 削除
+      alert_delete: 削除してよろしいですか？
+    show:
+      edit: 編集
+      delete: 削除
+      alert_delete: 削除してよろしいですか？
+      report_list: レポート一覧
+    create:
+      success: レポートを作成しました
+    update:
+      success: レポートを更新しました
+    destroy:
+      success: レポートを削除しました
+
+  comments:
+    comment: コメント
+    edit_comment: コメント編集
+    post_comment: コメントをする
+    edit:  編集
+    delete: 削除
+    delete_confirmation: 削除してよろしいですか？
+
+    create:
+      success: コメントを投稿しました
+      failed: コメント投稿に失敗しました
+    update:
+      success: コメントを編集しました
+    destroy:
+      success: コメントを削除しました
