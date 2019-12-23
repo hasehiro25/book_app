@@ -1,0 +1,9 @@
+<h1><%= t("follower.show.follower_with_name", name: @user.name) %></h1>
+<h2><%= "#{t("follower.show.follower")} (#{@followers.count})" %></h2>
+<ul>
+  <% @followers.each do |user| %>
+    <li><%= link_to user.name, user_path(user) %></li>
+  <% end %>
+</ul>
+<h2><%= t("follower.show.follower_timeline") %></h2>
+<%= render "user/shared/timeline", books: @books %>

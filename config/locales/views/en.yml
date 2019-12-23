@@ -3,6 +3,7 @@ en:
     defaults:
       back: Back
       blank: Not Entried
+
   books:
     index:
       show: Show
@@ -20,3 +21,18 @@ en:
       update: Updated book
     destroy:
       destroy: Deleted book
+
+  following:
+    show:
+      following_with_name: "%{name} Followings"
+      following: Following
+    create:
+      success: Follow succeeded
+      already_followed: Already followed
+    destroy:
+      success: Deleted follow
+
+  follower:
+    show:
+      follower_with_name: "%{name} Followers"
+      follower: Follower

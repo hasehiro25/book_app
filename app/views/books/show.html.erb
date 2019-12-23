@@ -18,5 +18,8 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
+<p>
+  posted by <%= link_to @book.user.name, user_path(@book.user) %>
+</p>
 <%= link_to t(".edit"), edit_book_path(@book) %> |
 <%= link_to t("views.defaults.back"), books_path %>

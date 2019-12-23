@@ -27,7 +27,24 @@ ja:
       update: 本を更新しました
     destroy:
       destroy: 本を削除しました
-  
+
   users:
     edit:
       current_avatar: 現在のアバター
+
+  following:
+    show:
+      following_with_name: "%{name}さんのフォロー"
+      following: フォロー
+      following_timeline: フォロー投稿
+    create:
+      success: フォローしました
+      already_followed: 既にフォローしています
+    destroy:
+      success: フォローを解除しました
+
+  follower:
+    show:
+      follower_with_name: "%{name}さんのフォロワー"
+      follower: フォロワー
+      follower_timeline: フォロワー投稿

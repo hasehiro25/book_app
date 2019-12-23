@@ -1,4 +1,4 @@
-<h1>個人ページ</h1>
+<h1><%= @user.name %>さん</h1>
 <dl>
   <dt><%= User.human_attribute_name(:email) %></dt>
   <dd><%= @user.email %></dd>
@@ -11,3 +11,11 @@
   <dt><%= User.human_attribute_name(:avatar) %></dt>
   <dd><%= image_tag @user.thumbnail unless @user.avatar.blank? %></dd>
 </dl>
+<ul class="list-inline">
+  <li class="list-inline-item"><%= link_to "フォロー", user_following_path(@user) %></li>
+  <li class="list-inline-item"><%= link_to "フォロワー", user_follower_path(@user) %></li>
+</ul>
+<% unless  @user == current_user %>
+  <%= link_to "フォローする", user_following_path(@user), method: :post, class: "btn btn-primary" unless current_user.following?(@user) %>
+  <%= link_to "フォローを外す", user_following_path(@user), method: :delete, class: "btn btn-danger" if current_user.following?(@user) %>
+<% end %>
