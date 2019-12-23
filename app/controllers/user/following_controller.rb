@@ -8,14 +8,16 @@ class User::FollowingController < ApplicationController
   end
 
   def create
-    current_user.followings.create!(followed: User.find(params[:user_id]))
-    redirect_to user_following_url(current_user), notice: t("followings.create.success")
-  rescue ActiveRecord::RecordNotUnique
-    redirect_to user_following_url(current_user), alert: t("followings.create.already_followed")
+    @user = current_user.followings.build(followed: User.find(params[:user_id]))
+    if @user.save
+      redirect_to user_following_url(current_user), notice: t("following.create.success")
+    else
+      redirect_to user_following_url(current_user), alert: t("following.create.already_followed")
+    end
   end
 
   def destroy
     current_user.followings.find_by(followed: User.find(params[:user_id])).destroy
-    redirect_to user_following_url(current_user), notice: t("followings.destroy.success")
+    redirect_to user_following_url(current_user), notice: t("following.destroy.success")
   end
 end

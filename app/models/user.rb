@@ -9,11 +9,11 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :books, dependent: :destroy
-  has_many :followings, class_name: "Relationship",
+  has_many :followings, class_name: "Following",
                         foreign_key: "follower_id",
                         dependent: :destroy
   has_many :following_users, through: :followings, source: :followed
-  has_many :followers, class_name: "Relationship",
+  has_many :followers, class_name: "Following",
                        foreign_key: "followed_id",
                        dependent: :destroy
   has_many :followed_users, through: :followers, source: :follower
