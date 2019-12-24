@@ -1,45 +1,45 @@
-taro_book1:
+book1:
   user: taro
   title: "ある本"
   author: "名無しさん"
   memo:  "メモです"
   created_at: <%= Time.now %>
 
-taro_book2:
+book2:
   user: taro
   title: "もっとある本"
   author: "名無しさん"
   memo:  メモです
   created_at: <%= 2.days.ago %>
 
-taro_book3:
+book3:
   user: taro
   title: "とある7つの"
   author: "名無しさん"
   memo:  "メモです"
   created_at: <%= 4.days.ago %>
 
-jiro_book4:
+book4:
   user: jiro
   title: "とあるロマンシング"
   author: "名無しさん"
   memo:  "メモです"
   created_at: <%= Time.now %>
 
-jiro_book5:
+book5:
   user: jiro
   title: "とある幻想"
   author: "名無しさん"
   created_at: <%= 2.days.ago %>
 
-jiro_book6:
+book6:
   user: jiro
   title: "とある金色"
   author: "名無しさん"
   memo:  メモです
   created_at: <%= 4.days.ago %>
 
-sabu_book7:
+book7:
   user: sabu
   title: "とあるとある"
   author: "名無しさん"

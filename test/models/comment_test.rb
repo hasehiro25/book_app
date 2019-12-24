@@ -10,8 +10,8 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "should have commentable type book and id" do
-    comment = books(:taro_book1).comments.create(content: "hello", user: users(:taro))
+    comment = books(:book1).comments.create(content: "hello", user: users(:taro))
     assert_equal comment.commentable_type, "Book"
-    assert_equal comment.commentable_id, books(:taro_book1).id
+    assert_equal comment.commentable_id, books(:book1).id
   end
 end

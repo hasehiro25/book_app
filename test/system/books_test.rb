@@ -4,7 +4,7 @@ require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:taro_book1)
+    @book = books(:book1)
     @user = users(:taro)
     sign_in(@user)
   end
@@ -46,6 +46,6 @@ class BooksTest < ApplicationSystemTestCase
       page.driver.browser.switch_to.alert.accept
       find ".alert.alert-info", text: '本を削除しました'
     end
-     assert_text "本を削除しました"
+    assert_text "本を削除しました"
   end
 end
