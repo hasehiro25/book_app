@@ -8,8 +8,4 @@ module UserDecorator
   def blank_attribute
     t("views.defaults.blank")
   end
-
-  def has_edit_authority?
-    self == current_user
-  end
 end

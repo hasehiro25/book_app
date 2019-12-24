@@ -6,7 +6,7 @@
 <h1><%= @report.title %></h1>
 <%= br_with_escape(@report.body) %>
 
-<% if @report.user.has_edit_authority? %>
+<% if @report.user == current_user %>
   <div>
     <div class="d-inline-block mb-3">
       <%= link_to t(".edit"), edit_report_path(@report), class: "btn btn-outline-primary inline" %>
