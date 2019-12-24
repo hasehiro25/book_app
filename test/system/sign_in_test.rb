@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "application_system_test_case" 
+require "application_system_test_case"
 
 class SignInTest < ApplicationSystemTestCase
   test "redirect to root path when not signed in" do

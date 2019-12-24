@@ -41,7 +41,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
-    within '.card' do
+    within ".card" do
       click_on "編集"
       sleep(0.5)
     end
@@ -68,7 +68,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     click_on "reports"
     click_on reports(:report1).title
     assert_difference "Comment.count", -1 do
-      within '.card' do
+      within ".card" do
         click_on "削除"
         page.driver.browser.switch_to.alert.accept
         sleep(0.5)

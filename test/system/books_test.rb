@@ -44,7 +44,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_difference "Book.count", -1 do
       click_on "削除", match: :first
       page.driver.browser.switch_to.alert.accept
-      find ".alert.alert-info", text: '本を削除しました'
+      find ".alert.alert-info", text: "本を削除しました"
     end
     assert_text "本を削除しました"
   end

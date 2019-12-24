@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-SimpleCov.start 'rails'
+require "simplecov"
+SimpleCov.start "rails"
 p "coverage started"
 
 ENV["RAILS_ENV"] ||= "test"
