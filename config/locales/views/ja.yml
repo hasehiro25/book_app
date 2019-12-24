@@ -80,5 +80,6 @@ ja:
       failed: コメント投稿に失敗しました
     update:
       success: コメントを編集しました
+      failed: コメント編集に失敗しました
     destroy:
       success: コメントを削除しました

@@ -58,5 +58,6 @@ en:
       failed: Failed to post comment
     update:
       success: Edited post
+      failed: Failed to edit comment
     destroy:
       success: Deleted post
