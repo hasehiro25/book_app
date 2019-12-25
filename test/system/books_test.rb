@@ -9,12 +9,12 @@ class BooksTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "visiting the index" do
+  test "shows list of books" do
     visit books_url
     assert_selector "h1", text: "Books"
   end
 
-  test "creating a Book" do
+  test "creates a book" do
     visit books_url
     click_on "新しい本を登録"
 
@@ -27,7 +27,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on "戻る"
   end
 
-  test "updating a Book" do
+  test "updates a book" do
     visit books_url
     click_on "編集", match: :first
 
@@ -39,7 +39,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on "戻る"
   end
 
-  test "destroying a Book" do
+  test "destroys book" do
     visit books_url
     assert_difference "Book.count", -1 do
       click_on "削除", match: :first

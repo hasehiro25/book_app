@@ -8,17 +8,17 @@ class UsersTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "visiting index" do
+  test "shows list of users" do
     visit users_url
     assert_selector "h1", text: "ユーザー一覧"
   end
 
-  test "visiting show" do
+  test "shows user page" do
     visit user_url(@user)
     assert_selector "h1", text: "#{@user.name}さん"
   end
 
-  test "create user" do
+  test "creates new user" do
     sign_out(@user)
     visit new_user_registration_url
     fill_in "user[name]", with: "John"
@@ -31,7 +31,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text "アカウント登録が完了しました。"
   end
 
-  test "update user" do
+  test "updates user" do
     visit root_url
     click_on "edit"
 
@@ -49,7 +49,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text "こんにちは\nジョンです"
   end
 
-  test "delete user" do
+  test "deletes user" do
     visit root_url
     click_on "edit"
     assert_difference "User.count", -1 do
