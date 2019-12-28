@@ -9,12 +9,12 @@ class BooksTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "shows list of books" do
+  test "shows books list" do
     visit books_url
     assert_selector "h1", text: "Books"
   end
 
-  test "creates a book" do
+  test "creates book" do
     visit books_url
     click_on "新しい本を登録"
 
@@ -27,7 +27,7 @@ class BooksTest < ApplicationSystemTestCase
     click_on "戻る"
   end
 
-  test "updates a book" do
+  test "updates book" do
     visit books_url
     click_on "編集", match: :first
 

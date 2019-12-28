@@ -8,7 +8,7 @@ class UsersTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "shows list of users" do
+  test "shows users list" do
     visit users_url
     assert_selector "h1", text: "ユーザー一覧"
   end

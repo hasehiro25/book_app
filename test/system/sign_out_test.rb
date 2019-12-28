@@ -8,7 +8,7 @@ class UsersTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "redirect to root_path when signed out" do
+  test "redirect to login page when signed out" do
     visit root_path
     click_on "logout"
     assert_text "ログイン"

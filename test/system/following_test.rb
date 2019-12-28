@@ -20,7 +20,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector "h2", text: "フォロワー (#{@user.followed_users.count})"
   end
 
-  test "follows a user" do
+  test "follows user" do
     visit user_path(users(:shiro))
     assert_difference "Following.count", 1 do
       click_on "フォローする"
@@ -28,7 +28,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "フォローしました"
   end
 
-  test "unfollows a user" do
+  test "unfollows user" do
     visit user_path(users(:jiro))
     assert_difference "Following.count", -1 do
       click_on "フォローを外す"

@@ -8,17 +8,17 @@ class BooksTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "shows list of reports" do
+  test "shows reports list" do
     visit reports_url
     assert_selector "h1", text: "Reports"
   end
 
-  test "shows a report" do
+  test "shows report" do
     visit report_url(reports(:report1))
     assert_selector "h1", text: "title one"
   end
 
-  test "creates a report" do
+  test "creates report" do
     visit reports_url
     click_on "新しいレポートを作成"
 
@@ -30,14 +30,14 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "レポートを作成しました"
   end
 
-  test "does not create a report with no content" do
+  test "unable to create report with blank content" do
     visit reports_url
     click_on "新しいレポートを作成"
     click_on "登録する"
     assert_selector "h1", text: "New Report"
   end
 
-  test "updates a report" do
+  test "updates report" do
     visit reports_url
     click_on "編集", match: :first
 
@@ -48,7 +48,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "レポートを更新しました"
   end
 
-  test "does not update a report with no content" do
+  test "unable to update report with blank content" do
     visit reports_url
     click_on "編集", match: :first
 
@@ -59,7 +59,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Edit Report"
   end
 
-  test "deletes a report" do
+  test "deletes report" do
     visit reports_url
 
     assert_difference "Report.count", -1 do

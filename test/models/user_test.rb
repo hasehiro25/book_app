@@ -12,7 +12,7 @@ class UserTest < ActiveSupport::TestCase
     DatabaseCleaner.clean
   end
 
-  test "does not save with invalid postcode" do
+  test "fails to save with invalid postcode" do
     user = users(:taro)
     user.postcode = "12345"
     assert_not user.valid?
@@ -28,7 +28,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user.provider, "github"
   end
 
-  test "#from_omniauth does not create a user with duplicate info" do
+  test "#from_omniauth fails to create a user with duplicate info" do
     assert_difference "User.count", 1 do
       User.from_omniauth(@hash)
     end

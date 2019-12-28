@@ -14,13 +14,13 @@ class BookCommentsTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "show comments for books" do
+  test "shows comments" do
     visit root_path
     click_on "詳細", match: :first
     assert_text "コメント"
   end
 
-  test "create comment for books" do
+  test "creates comment" do
     visit root_path
     click_on "詳細", match: :first
     fill_in "comment[content]", with: "this is a comment"
@@ -30,14 +30,14 @@ class BookCommentsTest < ApplicationSystemTestCase
     assert_text "this is a comment"
   end
 
-  test "fail comment creatation for books" do
+  test "fails to create comment" do
     visit root_path
     click_on "詳細", match: :first
     click_on "登録する"
     assert_text "コメント投稿に失敗しました"
   end
 
-  test "update comment for books" do
+  test "updates comment" do
     visit root_path
     click_on "詳細", match: :first
     create_comment
@@ -50,7 +50,7 @@ class BookCommentsTest < ApplicationSystemTestCase
     assert_text "this is a edited comment"
   end
 
-  test "fail comment update for books" do
+  test "fails to update comment" do
     visit root_path
     click_on "詳細", match: :first
     create_comment
@@ -63,7 +63,7 @@ class BookCommentsTest < ApplicationSystemTestCase
     assert_text "コメント編集に失敗しました"
   end
 
-  test "destrtoy comment for books" do
+  test "destrtoys comment" do
     visit root_path
     click_on "詳細", match: :first
     create_comment

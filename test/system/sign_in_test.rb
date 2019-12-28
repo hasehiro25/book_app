@@ -17,7 +17,7 @@ class SignInTest < ApplicationSystemTestCase
     assert_text "ログインしました"
   end
 
-  test "does not sign in with wrong password" do
+  test "unable to sign in with wrong password" do
     visit new_user_session_url
 
     fill_in "user[email]", with: "taro@sample.com"

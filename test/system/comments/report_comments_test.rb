@@ -8,7 +8,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     sign_in(@user)
   end
 
-  test "show comments for report" do
+  test "shows comments" do
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
@@ -16,7 +16,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     assert_text "コメント"
   end
 
-  test "create comment for report" do
+  test "creates comment" do
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
@@ -28,7 +28,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     assert_text "this is a comment"
   end
 
-  test "fail to create comment for report" do
+  test "fails to create comment" do
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
@@ -37,7 +37,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     assert_text "コメント投稿に失敗しました"
   end
 
-  test "update comment for report" do
+  test "updates comment" do
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
@@ -50,7 +50,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     assert_text "this is a edited comment"
   end
 
-  test "fail comment update for report" do
+  test "fails to update comment" do
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
@@ -63,7 +63,7 @@ class ReportCommentsTest < ApplicationSystemTestCase
     assert_text "コメント編集に失敗しました"
   end
 
-  test "destrtoy comment for report" do
+  test "destrtoys comment" do
     visit root_path
     click_on "reports"
     click_on reports(:report1).title
