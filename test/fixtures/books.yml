@@ -1,0 +1,47 @@
+book1:
+  user: taro
+  title: "ある本"
+  author: "名無しさん"
+  memo:  "メモです"
+  created_at: <%= Time.now %>
+
+book2:
+  user: taro
+  title: "もっとある本"
+  author: "名無しさん"
+  memo:  メモです
+  created_at: <%= 2.days.ago %>
+
+book3:
+  user: taro
+  title: "とある7つの"
+  author: "名無しさん"
+  memo:  "メモです"
+  created_at: <%= 4.days.ago %>
+
+book4:
+  user: jiro
+  title: "とあるロマンシング"
+  author: "名無しさん"
+  memo:  "メモです"
+  created_at: <%= Time.now %>
+
+book5:
+  user: jiro
+  title: "とある幻想"
+  author: "名無しさん"
+  created_at: <%= 2.days.ago %>
+
+book6:
+  user: jiro
+  title: "とある金色"
+  author: "名無しさん"
+  memo:  メモです
+  created_at: <%= 4.days.ago %>
+
+book7:
+  user: sabu
+  title: "とあるとある"
+  author: "名無しさん"
+  memo:  メモです
+  created_at: <%= 1.month.ago %>

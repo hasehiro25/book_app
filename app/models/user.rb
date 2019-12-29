@@ -33,10 +33,6 @@ class User < ApplicationRecord
     end
   end
 
-  def thumbnail
-    avatar.variant(resize: "300x300")
-  end
-
   def delete_avatar
     avatar.purge
   end

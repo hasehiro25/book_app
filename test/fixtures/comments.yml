@@ -1,0 +1,11 @@
+report_1:
+  commentable_type: "Report"
+  commentable: report1
+  content: "this is a comment for tests"
+  user: taro
+
+book_1:
+  commentable_type: "Book"
+  commentable: taro_book1
+  content: "this is a comment for tests"
+  user: taro

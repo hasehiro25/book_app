@@ -1,0 +1,27 @@
+taro:
+  name: taro
+  email: taro@sample.com
+  address: saitama
+  postcode: 1231234
+  encrypted_password: <%= User.new.send(:password_digest, 'foobarbiz') %>
+
+jiro:
+  name: jiro
+  email: jiro@sample.com
+  address: tokyo
+  postcode: 1231234
+  encrypted_password: <%= User.new.send(:password_digest, 'foobarbiz') %>
+
+sabu:
+  name: sabu
+  email: sabu@sample.com
+  address: tokyo
+  postcode: 1231234
+  encrypted_password: <%= User.new.send(:password_digest, 'foobarbiz') %>
+
+shiro:
+  name: shiro
+  email: shiro@sample.com
+  address: tokyo
+  postcode: 1231234
+  encrypted_password: <%= User.new.send(:password_digest, 'foobarbiz') %>
