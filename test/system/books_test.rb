@@ -17,6 +17,7 @@ class BooksTest < ApplicationSystemTestCase
   test "creates book" do
     visit books_url
     click_on "新しい本を登録"
+    find "h1", text: "New Book"
 
     fill_in "book[memo]", with: @book.memo
     fill_in "book[title]", with: @book.title
@@ -30,6 +31,7 @@ class BooksTest < ApplicationSystemTestCase
   test "updates book" do
     visit books_url
     click_on "編集", match: :first
+    find "h1", text: "Editing Book"
 
     fill_in "book[memo]", with: @book.memo
     fill_in "book[title]", with: @book.title

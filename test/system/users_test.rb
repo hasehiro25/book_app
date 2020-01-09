@@ -34,7 +34,7 @@ class UsersTest < ApplicationSystemTestCase
   test "updates user" do
     visit root_url
     click_on "edit"
-
+    sleep(1)
     fill_in "user[name]", with: "John"
     fill_in "user[email]", with: "sample-john@example.com"
     fill_in "user[postcode]", with: "1231234"
@@ -52,10 +52,11 @@ class UsersTest < ApplicationSystemTestCase
   test "deletes user" do
     visit root_url
     click_on "edit"
+    sleep(1)
     assert_difference "User.count", -1 do
       click_on "アカウント削除"
       page.driver.browser.switch_to.alert.accept
-      sleep(0.5)
+      sleep(1)
     end
   end
 end

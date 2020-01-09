@@ -33,7 +33,9 @@ class BooksTest < ApplicationSystemTestCase
   test "unable to create report with blank content" do
     visit reports_url
     click_on "新しいレポートを作成"
+    sleep(1)
     click_on "登録する"
+    sleep(1)
     assert_selector "h1", text: "New Report"
   end
 
@@ -51,6 +53,7 @@ class BooksTest < ApplicationSystemTestCase
   test "unable to update report with blank content" do
     visit reports_url
     click_on "編集", match: :first
+    sleep(1)
 
     fill_in "report[title]", with: ""
     fill_in "report[body]", with: ""
@@ -65,7 +68,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_difference "Report.count", -1 do
       click_on "削除", match: :first
       page.driver.browser.switch_to.alert.accept
-      sleep(0.5)
+      sleep(1)
     end
   end
 end
