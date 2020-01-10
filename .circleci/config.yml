@@ -1,46 +1,35 @@
-version: 2 # CircleCI 2.0 を使用します
-jobs: # ステップの集合
-  build: # Workflows を使用しない実行では、エントリポイントとして `build` ジョブが必要
-    parallelism: 3 # このジョブのインスタンスを 3つ並列実行します
-    docker: # Docker でステップを実行します
-      - image: circleci/ruby:2.6.5-stretch-node-browsers # このイメージをすべての `steps` が実行されるプライマリコンテナとして使用します
-        environment: # プライマリコンテナの環境変数
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    docker:
+      - image: circleci/ruby:2.6.5-stretch-node-browsers
+        environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: .bundle
           RAILS_ENV: test
-    steps: # 実行可能コマンドの集合
-      - checkout # ソースコードを作業ディレクトリにチェックアウトする特別なステップ
+
+    steps:
+      - checkout
 
       - run:
           name: install bundler
-          command: gem install bundler:2.0.2
-      # Bundler のバージョンを指定します
-
-      - run:
-          name: Bundler を指定
-          command: bundle -v
-
-      # バンドルキャッシュを復元します
-      # 依存関係キャッシュについては https://circleci.com/docs/ja/2.0/caching/ をお読みください
+          command: gem install bundler
 
       - restore_cache:
           keys:
             - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
             - rails-demo-bundle-v2-
 
-      - run: # Ruby の依存関係をインストールします
-          name: バンドルインストール
-          command: bundle install --path .bundle
-
-      # Ruby の依存関係のバンドルキャッシュを保存します
+      - run:
+          name: install bundle
+          command: bundle install
 
       - save_cache:
           key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - .bundle
-
-      # アプリケーションで Webpacker または Yarn を他の何らかの方法で使用する場合にのみ必要です
 
       - restore_cache:
           keys:
@@ -48,10 +37,8 @@ jobs: # ステップの集合
             - rails-demo-yarn-
 
       - run:
-          name: Yarn をインストール
+          name: install yarn
           command: yarn install --cache-folder ~/.cache/yarn
-
-      # Yarn または Webpacker のキャッシュを保存します
 
       - save_cache:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
@@ -59,13 +46,10 @@ jobs: # ステップの集合
             - ~/.cache/yarn
 
       - run:
-          name: testを実行
+          name: run tests
           command: |
             bundle exec rake test
             bundle exec rake test:system
 
-      # タイミング解析のテスト結果を保存します
-
-      - store_test_results: # テストサマリー (https://circleci.com/docs/ja/2.0/collect-test-data/) に表示するテスト結果をアップロードします
+      - store_test_results:
           path: test/reports
-      # デプロイコンフィグの例については https://circleci.com/docs/ja/2.0/deployment-integrations/ を参照してください
