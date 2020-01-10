@@ -52,4 +52,6 @@ group :test do
   gem "webdrivers"
   gem "database_cleaner"
   gem "simplecov", require: false
+  gem "minitest-ci"
+  gem 'minitest-retry'
 end

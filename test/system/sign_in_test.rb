@@ -30,7 +30,7 @@ class SignInTest < ApplicationSystemTestCase
     OmniAuth.config.add_mock(:github, { uid: "123456", info: { email: "sample4@sample.com", nickname: "git-sample" } })
     visit new_user_session_url
     click_on "GitHubでログイン"
-
+    sleep(1)
     assert_text "Github アカウントによる認証に成功しました"
   end
 end
