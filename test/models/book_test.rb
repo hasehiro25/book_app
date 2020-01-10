@@ -3,11 +3,6 @@
 require "test_helper"
 
 class BookTest < ActiveSupport::TestCase
-
-  test "dummy" do
-    assert false
-  end
-
   test "orders following_users books by latest" do
     books = Book.recent_following_books(users(:taro).following_users)
     assert books.first.created_at > books.last.created_at
