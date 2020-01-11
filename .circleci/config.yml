@@ -18,11 +18,12 @@ commands:
       - restore_cache:
           keys:
             - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
   install_bundle:
     steps:
       - run:
           name: install bundle
-          command: bundle install
+          command: bundle install & bundle clean
   save_bundle_cache:
     steps:
       - save_cache:
