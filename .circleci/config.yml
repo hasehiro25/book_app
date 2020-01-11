@@ -1,39 +1,65 @@
-version: 2
-jobs:
-  build:
-    parallelism: 1
+version: 2.1
+executors:
+  default:
     docker:
       - image: circleci/ruby:2.6.5-stretch-node-browsers
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: .bundle
-          RAILS_ENV: test
+    environment:
+      BUNDLE_JOBS: 3
+      BUNDLE_RETRY: 3
+      BUNDLE_PATH: .bundle
+commands:
+  install_bundler:
     steps:
-      - checkout
       - run:
           name: install bundler
-          command: gem install bundler
+          command: gem install bundler     
+  restore_bundle_cache:
+    steps:
       - restore_cache:
           keys:
             - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+  install_bundle:
+    steps:
       - run:
           name: install bundle
           command: bundle install
+  save_bundle_cache:
+    steps:
       - save_cache:
           key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - .bundle
+  restore_yarn_cache:
+    steps:
       - restore_cache:
           keys:
             - rails-demo-yarn-{{ checksum "yarn.lock" }}
+  install_yarn:
+    steps:
       - run:
           name: install yarn
           command: yarn install --cache-folder ~/.cache/yarn
+  save_yarn_cache:
+    steps:
       - save_cache:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - ~/.cache/yarn      
+jobs:
+  build:
+    parallelism: 1
+    executor: default
+    environment:
+      RAILS_ENV: test
+    steps:
+      - checkout
+      - install_bundler
+      - restore_bundle_cache
+      - install_bundle
+      - save_bundle_cache
+      - restore_yarn_cache
+      - install_yarn
+      - save_yarn_cache
       - run:
           name: run tests
           command: |
@@ -43,38 +69,18 @@ jobs:
           path: test/reports
   deploy:
     parallelism: 1
-    docker:
-      - image: circleci/ruby:2.6.5-stretch-node-browsers
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: .bundle
-          RAILS_ENV: production
+    executor: default
+    environment:
+      RAILS_ENV: production
     steps:
       - checkout
-      - run:
-          name: install bundler
-          command: gem install bundler
-      - restore_cache:
-          keys:
-            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: install bundle
-          command: bundle install
-      - save_cache:
-          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
-          paths:
-            - .bundle
-      - restore_cache:
-          keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
-      - run:
-          name: install yarn
-          command: yarn install --cache-folder ~/.cache/yarn
-      - save_cache:
-          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
+      - install_bundler
+      - restore_bundle_cache
+      - install_bundle
+      - save_bundle_cache
+      - restore_yarn_cache
+      - install_yarn
+      - save_yarn_cache
       - add_ssh_keys:
           fingerprints:
             - "91:5b:7f:10:ad:ce:3b:67:7f:7e:bf:50:f6:25:ab:5c"
@@ -82,7 +88,6 @@ jobs:
           name: deploy by ssh
           command: |
             bundle exec cap production deploy
-
 workflows:
   version: 2
   build-and-deploy:
