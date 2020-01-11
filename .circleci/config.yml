@@ -51,3 +51,23 @@ jobs:
 
       - store_test_results:
           path: test/reports
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: deploy by ssh
+          command: |
+            ssh $SSH_USER@$SSH_HOST -p$PORT "bundle exec cap production deploy"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
