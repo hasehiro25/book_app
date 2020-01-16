@@ -23,7 +23,7 @@ commands:
     steps:
       - run:
           name: install bundle
-          command: bundle install & bundle clean
+          command: bundle install
   save_bundle_cache:
     steps:
       - save_cache:
