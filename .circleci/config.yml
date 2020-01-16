@@ -17,8 +17,8 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-demo-bundle-v2-
+            - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v1-
   install_bundle:
     steps:
       - run:
@@ -27,14 +27,14 @@ commands:
   save_bundle_cache:
     steps:
       - save_cache:
-          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - .bundle
   restore_yarn_cache:
     steps:
       - restore_cache:
           keys:
-            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-v1-{{ checksum "yarn.lock" }}
   install_yarn:
     steps:
       - run:
@@ -43,7 +43,7 @@ commands:
   save_yarn_cache:
     steps:
       - save_cache:
-          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          key: rails-demo-yarn-v1-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn      
 jobs:
